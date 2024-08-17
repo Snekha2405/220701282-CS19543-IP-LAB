@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            background-image: url('AA.avif');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        
+        h1 {
+            color: whitesmoke;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+        
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            width: 500px;
+            margin: 50px auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        form label {
+            display: inline-block;
+            width: 140px;
+            
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        form input[type="text"],
+        form select {
+            width:300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            
+            margin-bottom: 10px;
+        }
+
+        form input[type="radio"] {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .sub, .res {
+            width: 150px;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            color: white;
+            margin: 20px auto;
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        .sub {
+            background-color: #4CAF50;
+        }
+        
+        
+        .res {
+            background-color: #f44336;
+        }
+        
+        
+        
+    </style>
+    <script>
+        function func(event) {
+            event.preventDefault();
+            var name = document.forms["f1"]["n1"].value;
+            var rollno = document.forms["f1"]["n2"].value;
+            var email = document.forms["f1"]["n3"].value;
+            var gender = document.forms["f1"]["n4"].value;
+            var year = document.forms["f1"]["n5"].value;
+            var department = document.forms["f1"]["n6"].value;
+            var section = document.forms["f1"]["n7"].value;
+            var mobile = document.forms["f1"]["n8"].value;
+            var address = document.forms["f1"]["n9"].value;
+            var city = document.forms["f1"]["n10"].value;
+            var country = document.forms["f1"]["n11"].value;
+            var pincode = document.forms["f1"]["n12"].value;
+            var course = document.forms["f1"]["n13"].value;
+            var coursecode = document.forms["f1"]["n14"].value;
+
+            var namePattern = /^[A-Za-z\s]+$/;
+            var rollnoPattern = /^[0-9]{9}$/;
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            var mobilePattern = /^[0-9]{10}$/;
+            var pincodePattern = /^[0-9]{6}$/;
+            var countryPattern = /^[a-zA-z\s]+$/;
+            var codePattern = /^[A-Za-z]{2}[0-9]{5}$/;
+            var v = true;
+
+            if (name === "" || !namePattern.test(name)) {
+                alert("Please enter a valid name (letters and spaces only).");
+                v = false;
+            }
+            if (!rollnoPattern.test(rollno) && v) {
+                alert("Please enter a valid Roll Number (9 digits).");
+                v = false;
+            }
+            if (!emailPattern.test(email) && v) {
+                alert("Please enter a valid Email ID.");
+                v = false;
+            }
+            if (gender == "" && v) {
+                alert("Please select your Gender.");
+                v = false;
+            }
+            if (year === "" && v) {
+                alert("Please select your Year.");
+                v = false;
+            }
+            if (department === "" && v) {
+                alert("Please select your Department.");
+                v = false;
+            }
+            if (section == "" && v) {
+                alert("Please select your Section.");
+                v = false;
+            }
+            if (!mobilePattern.test(mobile) && v) {
+                alert("Please enter a valid Mobile Number (10 digits).");
+                v = false;
+            }
+            if (address === "" && v) {
+                alert("Please enter your Address.");
+                v = false;
+            }
+            if (city === "" && v) {
+                alert("Please enter your City.");
+                v = false;
+            }
+            if ((country === "" || !countryPattern.test(country)) && v) {
+                alert("Please enter your Country.");
+                v = false;
+            }
+            if (!pincodePattern.test(pincode) && v) {
+                alert("Please enter a valid Pincode (6 digits).");
+                v = false;
+            }
+            if ((coursecode == "" || !codePattern.test(coursecode)) && v) {
+                alert("Please enter your Course Code.");
+                v = false;
+            }
+            if ((course === "" || !countryPattern.test(course)) && v) {
+                alert("Please enter your Course name.");
+                v = false;
+            }
+            
+            if (v == true) {
+                alert("Thank you for registration");
+                form.submit();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Student Course Registration</h1>
+    <div>
+        <form name="f1" action="#" method="get" class="a">
+            <label for="n1">Name:</label>
+            <input type="text" maxlength="10" name="n1"><br><br>
+
+            <label for="n2">Rollno:</label>
+            <input type="text" maxlength="9" name="n2"><br><br>
+
+            <label for="n3">Email:</label>
+            <input type="text" name="n3"><br><br>
+
+            <label>Gender:</label>
+            <input type="radio" name="n4" value="Male">Male</input>
+            <input type="radio" name="n4" value="Female">Female</input><br><br>
+
+            <label for="n5">Year:</label>
+            <select name="n5">
+                <option>I year</option>
+                <option>II year</option>
+                <option>III year</option>
+                <option>IV year</option>
+            </select><br><br>
+
+            <label for="n6">Department:</label>
+            <select name="n6">
+                <option>CSE</option>
+                <option>ECE</option>
+                <option>EEE</option>
+                <option>CSD</option>
+                <option>AIDS</option>
+            </select><br><br>
+
+            <label>Section:</label>
+            <input type="radio" name="n7" value="A">A</input>
+            <input type="radio" name="n7" value="B">B</input>
+            <input type="radio" name="n7" value="C">C</input>
+            <input type="radio" name="n7" value="D">D</input>
+            <input type="radio" name="n7" value="E">E</input><br><br>
+
+            <label for="n8">Mobile No:</label>
+            <input type="text" maxlength="10" name="n8"><br><br>
+
+            <label for="n9">Address:</label>
+            <input type="text" name="n9"><br><br>
+
+            <label for="n10">City:</label>
+            <input type="text" name="n10"><br><br>
+
+            <label for="n11">Country:</label>
+            <input type="text" name="n11"><br><br>
+
+            <label for="n12">Pincode:</label>
+            <input type="text" name="n12"><br><br>
+
+            <label for="n14">Course Code:</label>
+            <input type="text" name="n14"><br><br>
+
+            <label for="n13">Course Name:</label>
+            <input type="text" name="n13"><br><br>
+
+            <button value="submit" onclick="func(event)" class="sub">Submit</button><br><br>
+            <input type="reset" class="res" value="Cancel">
+        </form>
+    </div>
+</body>
+</html>
