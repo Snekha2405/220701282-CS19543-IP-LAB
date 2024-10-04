@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Students details</title>
+<style>
+.container{
+background-color:beige;
+justify-content:center;
+text-align:center;
+margin:100px;
+padding:20px;
+height:400px;
+h2, select {
+  display: inline-block;
+  vertical-align: middle; 
+  }
+}
+</style>
+<script>
+function fetch()
+{
+	var reg=document.getElementById("std").value;
+	var a= new XMLHttpRequest();
+	a.open("GET","Student?reg="+reg,true);
+	a.onreadystatechange=function()
+	{
+		if(a.readyState==4 && a.status==200){
+			document.getElementById("details").innerHTML=a.responseText;
+		}
+	};
+	a.send();
+}
+</script>
+</head>
+<body>
+<div class="container">
+<h1>Students details</h1>
+<h2>Enter your Roll Number:</h2>
+<select id="std" onchange="fetch()">
+<option>282</option>
+<option>281</option>
+<option>297</option>
+<option>301</option>
+<option>267</option>
+
+</select>
+<div id="details"></div>
+</div>
+</body>
+</html>
