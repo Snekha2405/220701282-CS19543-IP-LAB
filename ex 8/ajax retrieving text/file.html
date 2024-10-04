@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest Example</title>
+    <script>
+        function load() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "rec.txt", true);
+            xhttp.onload = function() {
+                document.getElementById("content").innerHTML = xhttp.responseText;
+                
+            };
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+    
+    <div >Simple Ajax program.</div>
+    <button type="button" onclick="load()">Load Content</button>
+    <div id="content"></div>
+</body>
+</html>
