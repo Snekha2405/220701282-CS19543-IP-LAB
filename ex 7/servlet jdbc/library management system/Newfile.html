@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LIBRARY MANAGEMENT SYSTEM</title>
+<style>
+    body {
+        
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+    form {
+        background-color: rgba(204, 73, 206, 0.9);
+        
+        margin-left:490px;
+        padding: 30px;
+        width: 500px;
+        
+        
+    }
+    form label {
+        display: inline-block;
+        width: 140px;
+        
+        font-weight: bold;
+        vertical-align: middle;
+    }
+
+    form input[type="text"],
+    form select {
+        width:300px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        
+        margin-bottom: 10px;
+    }
+
+    form input[type="radio"] {
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+    .sub,.v,.c {
+        width: 150px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        color: white;
+        margin: 20px auto;
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+        background-color: #4CAF50;
+    }
+    .sub{
+        background-color: #4CAF50;
+    }
+    .c{
+        background-color: red;
+    }
+    .v{
+        background-color: grey;
+    }
+    
+    
+    
+    
+
+
+</style>
+</head>
+<body>
+   <h1><center>Library Management System</center></h1>
+   <form action="search" method="get">
+   <label for="n1">Search</label>
+   <input type="search" name="n1"> <input type="submit" value="Search">
+   </form>
+	<form action="Insert" method="get">
+		<label for="n2">Book Id</label> <input type="text" name="n2"><br>
+		<br> <label for="n3">Book Name</label> <input type="text"
+			name="n3"><br>
+		<br> <label for="n4">Author</label> 
+		<input type="text" name="n4"><br>
+		<br> <label for="n5">Publisher</label>
+		 <input type="text" name="n5"><br>
+		<br> <label for="n6">Edition</label> <input type="text"
+			name="n6"><br>
+		<br> <label for="n7">Price</label> <input type="text" name="n7">
+		<br>
+		<br> <label for="n8">Operation</label> <select name="n8">
+			<option>Insert</option>
+			<option>Update</option>
+			<option>Delete</option>
+		</select>
+		<input type="submit" class="sub">  
+		<input type="reset" value="cancel" class="c">
+	</form>
+	<form action="view" method="get">
+    <input type="submit" value="View " class="v">
+
+   </form>
+
+</body>
+</html>
